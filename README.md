@@ -1,5 +1,5 @@
 # Bashopskrifter
-Snusfornuftige husmorrå
+Snusfornuftige husmorråd
 
 
 #Oneliners og små funktioer der kan redde liv, hvis det foreksempel afhænger af om du skal optage noget fra P1 eller sådan noget i en fart
@@ -23,3 +23,10 @@ rm -rf tmp.sqlite
 
 #Cat alle eksekverbare filer i mappen 
 ls -g | grep  ^-........x | rev | cut -d ' ' -f 1 | rev | while read a; do printf ${a} ; cat $a; done
+
+
+
+#Hent keymap så man kan rette i det
+xkbcomp -xkb $DISPLAY xkbmap
+#Gem et keymap. kan evt puttes i .bashrc
+xkbcomp -w 0 xkbmap $DISPLAY
