@@ -22,6 +22,8 @@ rm -rf tmp.sqlite
 
 
 #Cat alle eksekverbare filer i mappen 
+
+
 ls -g | grep  ^-........x | rev | cut -d ' ' -f 1 | rev | while read a; do printf ${a} ; cat $a; done
 
 
