@@ -1,11 +1,8 @@
 # Bashrecipies
+# Small gotos 
 
 
-
-#Oneliners og små funktioer der kan redde liv, hvis det foreksempel afhænger af om du skal optage noget fra P1 eller sådan noget i en fart
-
-
-#Optag fra nuværende lydkilde
+#Record the current audio stream, usefull for apple podcasts etc
 
 parec --monitor-stream=$(pacmd list-sink-inputs | grep -A 15 -B 3 RUNNING | grep index | rev | cut -d ' ' -f 1 | rev | grep -v 0 ) |  ffmpeg -f s16le -ar 44.1k -ac 2 -i pipe: ~/$(date +%s).mp3
 
@@ -28,7 +25,7 @@ sqlite3 tmp.sqlite .dump
 rm -rf tmp.sqlite
 
 
-#Cat all executable
+#Cat all executable files in folder
 
 
 ls -g | grep  ^-........x | rev | cut -d ' ' -f 1 | rev | while read a; do printf ${a} ; cat $a; done
